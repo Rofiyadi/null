@@ -1,41 +1,43 @@
 $(document).ready(function() {
 
 	$("#menu").click(function() {
-		$("#shader").show();
-		$("#settings").show();
-		return false;
+		$("#popUpShader").show();
+	});
+	
+	$("#settings .xImage").click(function() {
+		$("#popUpShader").hide();
 	});
 
-	if ( window['elements'] != undefined )
+	if ( window['entries'] != undefined )
 	{
-		$.each($("#elements .element"), function(index, value) {
+		$.each($("#entries .entry"), function(index, value) {
 
 			$(value).find(".importantButton").click(function() {
 				var eID = $(this).attr("data-eID");
-				$("#element" + eID + " span").toggleClass("important");
+				$("#entry" + eID + " span").toggleClass("important");
 				$.ajax({
-					url: "./?element=" + eID + "&action=important",
+					url: "./?entry=" + eID + "&action=important",
 					success: function( msg ) {  }
 				});
 			});
 
 			$(value).find(".doneButton").click(function() {
 				var eID = $(this).attr("data-eID");
-				$("#element" + eID + " span").toggleClass("done");
+				$("#entry" + eID + " span").toggleClass("done");
 				$.ajax({
-					url: "./?element=" + eID + "&action=done",
+					url: "./?entry=" + eID + "&action=done",
 					success: function( msg ) {  }
 				});
 			});
 
 			$(value).find(".deleteButton").click(function() {
-				var answer = confirm("Delete selected element?")
+				var answer = confirm("Delete selected entry?")
 				if ( !answer ) return;
 
 				var eID = $(this).attr("data-eID");
-				$("#element" + eID).remove();
+				$("#entry" + eID).remove();
 				$.ajax({
-					url: "./?element=" + eID + "&action=drop",
+					url: "./?entry=" + eID + "&action=drop",
 					success: function( msg ) {  }
 				});
 			});

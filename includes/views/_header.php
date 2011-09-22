@@ -10,13 +10,23 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
+	<link rel="stylesheet" href="assets/css/popUp.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <script type="text/javascript" src="assets/js/jquery-1.6.4.min.js"></script>
     <script type="text/javascript" src="assets/js/scripts.js"></script>
 </head>
 <body>
 
-	<div id="shader"></div>
+	<div id="popUpShader">
+		<div class="popUpWindow" id="settings">
+			<h3 class="popUpWindowTitleBar">Settings<img src="assets/images/close.png" alt="close" class="xImage" /></h3>
+			<div class="popUpContent">
+				<div class="menuBox" id="logout"><img src="assets/images/logout.png"><div>logout</div></div>
+				<div class="menuBox" id="listUnordered"><img src="assets/images/listUnordered.png"><div>new list</div></div>
+				<div class="menuBox" id="listOrdered"><img src="assets/images/listOrdered.png"><div>new list</div></div>
+			</div>
+		</div>
+	</div>
 
 	<div data-role="header">
 		<h1>
@@ -28,7 +38,6 @@
 			<img src="assets/images/settings.png" alt="menu" title="menu" id="menu" />
 <?php } ?>
 		</h1>
-		<div id="settings"></div>
 	</div>
 
 	<div data-role="content">

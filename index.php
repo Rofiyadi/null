@@ -20,8 +20,8 @@ try
 	else if ( $_GET['list'] )
 		$c = new TodoListController();
 
-	else if ( $_GET['element'] )
-		$c = new ElementController();
+	else if ( $_GET['entry'] )
+		$c = new EntryController();
 
 	else if ( !isset($_SESSION['loggedIn']) )
 		$c = new HomeController();

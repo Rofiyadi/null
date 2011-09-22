@@ -168,11 +168,11 @@ div[data-role="content"] a:hover
 	background: #333;
 }
 
-#elements
+#entries
 {
 	margin: 10px 0;
 }
-#elements > div
+#entries > div
 {
 	margin: 0 auto 4px auto;
 	margin-left: 20px;
@@ -181,47 +181,47 @@ div[data-role="content"] a:hover
 	background: #EEE;
 	box-shadow: 2px 2px 2px -2px #333;
 }
-#elements > div#addElement:hover
+#entries > div#addEntry:hover
 {
 	background: #EEE;
 }
-#elements > div:hover
+#entries > div:hover
 {
 	background: #CCC;
 }
-#elements > div > div
+#entries > div > div
 {
 	visibility: hidden;
 	display: inline-block;
 	margin-right: 10px;
 	float: right;
 }
-#elements > div:hover > div
+#entries > div:hover > div
 {
 	visibility: visible;
 }
-#elements > div > div > img
+#entries > div > div > img
 {
 	cursor: pointer;
 }
-#elements > div > a
+#entries > div > a
 {
 	display: inline-block;
 	margin-left: 5px;
 }
-#elements form
+#entries form
 {
 	text-align: center;
 }
-#elements label,
-#elements input[type="text"],
-#elements input[type="submit"]
+#entries label,
+#entries input[type="text"],
+#entries input[type="submit"]
 {
 	margin: 0 auto;
 	padding: 2px 6px 2px 6px;
 	font-size: .9em;
 }
-#elements input[type="text"]
+#entries input[type="text"]
 {
 	width: 350px;
 	border: 0px;
@@ -229,7 +229,7 @@ div[data-role="content"] a:hover
 	border-radius: .4em;
     box-shadow: inset 1px 1px 2px #333;
 }
-#elements input[type="submit"]
+#entries input[type="submit"]
 {
 	width: 100px;
 	margin-left: 10px;
@@ -241,7 +241,7 @@ div[data-role="content"] a:hover
 	border-radius: .4em;
 	box-shadow: 2px 2px 2px -2px #333;
 }
-#elements input[type="submit"]:hover
+#entries input[type="submit"]:hover
 {
 	color: #0568c3;
 	background: #333;
@@ -265,12 +265,34 @@ div[data-role="content"] a:hover
 	text-decoration: line-through;
 }
 
-#shader
+#settings
 {
-	display: none;
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	z-index: 100;
-	background-color: rgba(40, 40, 40, .9);
+	width: 80%;
+}
+#menu
+{
+	cursor: pointer;
+}
+.menuBox
+{
+	display: inline-block;
+	width: 100px;
+	margin: 3px 5px 3px 5px;
+	padding: 5px;
+	color: #0568c3;
+	font-size: .9em;
+	font-weight: bold;
+	text-align: center;
+	cursor: pointer;
+}
+.menuBox:hover
+{
+	background: #333;
+	-moz-border-radius: .4em;
+	border-radius: .4em;
+	box-shadow: 3px 3px 3px -2px #333;
+}
+.menuBox >img
+{
+	margin-bottom: 5px;
 }

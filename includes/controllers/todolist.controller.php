@@ -16,7 +16,7 @@ class TodoListController
 
 		$user = unserialize($_SESSION['user']);
 		$list = $_GET['list'];
-		$action = isset($_GET['action']) ? $action = $_GET['action'] : '';
+		$action = isset($_GET['action']) ? $_GET['action'] : '';
 
 		if ( $action == '' && is_numeric($list) )
 		{
@@ -24,22 +24,14 @@ class TodoListController
 			if ( empty($listInfo) )
 				throw new Exception('Malformated values!');
 
-			$elements = Element::find( array('lID' => $list) );
+			$entries = Entry::find( array('lID' => $list) );
 
 			render('userhome', array(
 				'title' => '.'. $user->username .'.'.$listInfo[0]->title,
 				'lID' => $list,
 				'listTitle' => $listInfo[0]->title,
-				'elements' => $elements
+				'entries' => $entries
 			));
-		}
-		else if ( $action == 'add' )
-		{
-			$_POST['uID'] = $user->uID;
-			$_POST['lID'] = $list;
-			TodoList::insert( $_POST );
-
-			header('Location: ?list=' . $list);
 		}
 		else
 			throw new Exception('Wrong action specified!');
