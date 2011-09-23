@@ -5,7 +5,8 @@ render( '_header', array( 'title' => $title ) );
 
 <div id="lists">
 <?php foreach ($user->lists as $list) { ?>
-	<a href="./?list=<?php echo $list->lID ?>" <?php echo tabTitleTip($list->title) ?>><?php echo tabTitle($list->title) ?></a>
+	<a href="./?list=<?php echo $list->lID ?>" <?php echo tabTitleTip($list->title) ?>
+	<?php echo (isset($lID) && $lID == $list->lID ? 'class="current"' : '')?>><?php echo tabTitle($list->title) ?></a>
 <?php } ?>
 </div>
 
