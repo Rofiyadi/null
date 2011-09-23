@@ -16,16 +16,19 @@ class EntryController
 
 		$user = unserialize($_SESSION['user']);
 		$eID = $_GET['entry'];
-		if ( !is_numeric($eID) )
-			throw new Exception('Malformated values!');
+
 		$action = isset($_GET['action']) ? $_GET['action'] : '';
 
 		if ( $action == 'add' )
 		{
-			$_POST['uID'] = $user->uID;
-			Entry::insert( $_POST );
-
-			header('Location: ?list=' . $_POST['lID']);
+			$_GET['uID'] = $user->uID;
+			Entry::insert( $_GET );
+		}
+		else if ( $action == 'edit' )
+		{
+			$_GET['uID'] = $user->uID;
+			$_GET['eID'] = $_GET['entry'];
+			Entry::update( $_GET );
 		}
 		else if ( $action == 'drop' )
 		{

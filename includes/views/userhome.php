@@ -23,7 +23,8 @@ render( '_header', array( 'title' => $title ) );
 	if ( $entry->important ) echo 'important ';
 	if ( !$entry->active ) echo 'done ';
 	echo '">' . $entry->title . '</span>';
-	if ( $entry->link != '#' ) echo '<a href="'.$entry->link.'"><img src="assets/images/link.png" alt="link"/></a>';
+	if ( $entry->link == '#' ) echo '<a href=""></a>';
+	else echo '<a href="'.$entry->link.'"><img src="assets/images/link.png" alt="link"/></a>';
 ?>
 		<div>
 			<img src="assets/images/important.png" class="importantButton" data-eID="<?php echo $entry->eID ?>" />
@@ -39,13 +40,18 @@ render( '_header', array( 'title' => $title ) );
 	<div class="popUpWindow">
 		<h3 class="popUpWindowTitleBar"></h3>
 		<div class="popUpContent">
-			<form action="index.php?entry=<?php echo $lID ?>&action=add" method="POST" id="addContent">
+			<form action="index.php?entry=1&action=add" method="POST" id="addContent">
 				<div><label for="title"><img src="assets/images/pencil.png" alt="pencil" /></label><input type="text" name="title" id="title" /></div>
 				<div><label for="link"><img src="assets/images/link.png" alt="link" /></label><input type="text" name="link" id="link" /></div>
 				<input type="hidden" name="lID" value="<?php echo $lID ?>" />
 			</form>
 
 			<div id="deleteContent">Delete entry? <span></span></div>
+
+			<form id="editContent">
+				<div><label for="title2"><img src="assets/images/pencil.png" alt="pencil" /></label><input type="text" name="title" id="title2" /></div>
+				<div><label for="link2"><img src="assets/images/link.png" alt="link" /></label><input type="text" name="link" id="link2" /></div>
+			</form>
 
 			<button id="cancel">Cancel</button> <button id="ok"></button>
 		</div>

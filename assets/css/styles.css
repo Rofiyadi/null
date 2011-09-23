@@ -177,6 +177,7 @@ div[data-role="content"] a:hover
 	margin: 0 auto 4px auto;
 	margin-left: 20px;
 	margin-right: 20px;
+	line-height: 25px;
 	padding: 5px;
 	background: #EEE;
 	box-shadow: 2px 2px 2px -2px #333;
@@ -217,11 +218,13 @@ div[data-role="content"] a:hover
 	display: inline-block;
 	margin-left: 5px;
 }
-#addContent > div
+#addContent > div,
+#editContent > div
 {
 	margin: 15px auto;
 }
-#addContent input[type="text"]
+#addContent input[type="text"],
+#editContent input[type="text"]
 {
 	width: 70%;
 	margin-left: 10px;
@@ -305,7 +308,8 @@ div[data-role="content"] a:hover
 	margin-right: 5px;
 }
 #addContent,
-#deleteContent
+#deleteContent,
+#editContent
 {
 	display: none;
 }
