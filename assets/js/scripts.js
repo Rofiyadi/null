@@ -12,7 +12,32 @@ $(document).ready(function() {
 		window.location = "?user&action=logout";
 	});
 
+	$("#addEntry > button").click(function() {
+		$("#confirmBox .popUpWindowTitleBar").text( "Add New Entry" );
+		$("#addContent > div > input").val( "" );
+
+		$("#ok").text("Add");
+		$("#ok").unbind('click');
+		$("#ok").click(function() {
+			$("#addContent").submit();
+			/*
+			$("#entry" + eID).remove();
+			$.ajax({
+				url: "./?entry=" + eID + "&action=drop",
+				success: function( msg ) {  }
+			});
+			$("#deleteContent").hide();
+			$("#confirmBox").hide();
+			*/
+		});
+
+		$("#addContent").show();
+		$("#confirmBox").show();
+	});
+
 	$("#cancel").click(function() {
+		$("#addContent").hide();
+		$("#deleteContent").hide();
 		$("#confirmBox").hide();
 	});
 
@@ -41,18 +66,23 @@ $(document).ready(function() {
 
 			$(value).find(".deleteButton").click(function() {
 				var eID = $(this).attr("data-eID");
-				$("#confirmBox").show();
+				$("#confirmBox .popUpWindowTitleBar").text( "Confirm Deletion" );
 				$("#confirmBox .popUpContent > div > span").text( $("#entry" + eID + " > span").text() );
 
-				$("#delete").unbind('click');
-				$("#delete").click(function() {
+				$("#ok").text("Delete");
+				$("#ok").unbind('click');
+				$("#ok").click(function() {
 					$("#entry" + eID).remove();
 					$.ajax({
 						url: "./?entry=" + eID + "&action=drop",
 						success: function( msg ) {  }
 					});
+					$("#deleteContent").hide();
 					$("#confirmBox").hide();
 				});
+
+				$("#deleteContent").show();
+				$("#confirmBox").show();
 			});
 		});
 	}

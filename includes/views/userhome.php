@@ -14,14 +14,7 @@ render( '_header', array( 'title' => $title ) );
 <h2><?php echo $listTitle ?></h2>
 <script type="text/javascript" > var entries = <?php echo count($entries) ?>; </script>
 <div id="entries">
-	<div id="addEntry">
-		<form action="index.php?entry=<?php echo $lID ?>&action=add" method="POST"><div>
-			<label for="title"><img src="assets/images/pencil.png" alt="pencil" /></label><input type="text" name="title" id="title" />
-			<label for="link"><img src="assets/images/link.png" alt="link" /></label><input type="text" name="link" id="link" />
-			<input type="hidden" name="lID" value="<?php echo $lID ?>" />
-			<input type="submit" value="Add" />
-		</div></form>
-	</div>
+	<div id="addEntry"><button>Add New Entry</button></div>
 
 <?php foreach ($entries as $entry) { ?>
 	<div class="entry" id="entry<?php echo $entry->eID ?>">
@@ -42,13 +35,22 @@ render( '_header', array( 'title' => $title ) );
 <?php } ?>
 </div>
 
-	<div class="popUpShader" id="confirmBox">
-		<div class="popUpWindow">
-			<h3 class="popUpWindowTitleBar">Confirm Deletion</h3>
-			<div class="popUpContent"><div>Delete entry? <span></span></div>
-			<button id="cancel">Cancel</button> <button id="delete">Delete</button></div>
+<div class="popUpShader" id="confirmBox">
+	<div class="popUpWindow">
+		<h3 class="popUpWindowTitleBar"></h3>
+		<div class="popUpContent">
+			<form action="index.php?entry=<?php echo $lID ?>&action=add" method="POST" id="addContent">
+				<div><label for="title"><img src="assets/images/pencil.png" alt="pencil" /></label><input type="text" name="title" id="title" /></div>
+				<div><label for="link"><img src="assets/images/link.png" alt="link" /></label><input type="text" name="link" id="link" /></div>
+				<input type="hidden" name="lID" value="<?php echo $lID ?>" />
+			</form>
+
+			<div id="deleteContent">Delete entry? <span></span></div>
+
+			<button id="cancel">Cancel</button> <button id="ok"></button>
 		</div>
 	</div>
+</div>
 
 <?php } ?>
 
