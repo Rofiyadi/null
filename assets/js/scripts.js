@@ -1,12 +1,21 @@
 $(document).ready(function() {
 
 	$("#menu").click(function() {
-		$("#popUpShader").show();
+		$("#settings").show();
 	});
-	
+
 	$("#settings .xImage").click(function() {
-		$("#popUpShader").hide();
+		$("#settings").hide();
 	});
+
+	$("#logout").click(function() {
+		window.location = "?user&action=logout";
+	});
+
+	$("#cancel").click(function() {
+		$("#confirmBox").hide();
+	});
+
 
 	if ( window['entries'] != undefined )
 	{
@@ -31,14 +40,18 @@ $(document).ready(function() {
 			});
 
 			$(value).find(".deleteButton").click(function() {
-				var answer = confirm("Delete selected entry?")
-				if ( !answer ) return;
-
 				var eID = $(this).attr("data-eID");
-				$("#entry" + eID).remove();
-				$.ajax({
-					url: "./?entry=" + eID + "&action=drop",
-					success: function( msg ) {  }
+				$("#confirmBox").show();
+				$("#confirmBox .popUpContent > div > span").text( $("#entry" + eID + " > span").text() );
+
+				$("#delete").unbind('click');
+				$("#delete").click(function() {
+					$("#entry" + eID).remove();
+					$.ajax({
+						url: "./?entry=" + eID + "&action=drop",
+						success: function( msg ) {  }
+					});
+					$("#confirmBox").hide();
 				});
 			});
 		});

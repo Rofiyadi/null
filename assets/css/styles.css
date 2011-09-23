@@ -265,7 +265,7 @@ div[data-role="content"] a:hover
 	text-decoration: line-through;
 }
 
-#settings
+#settings > div
 {
 	width: 80%;
 }
@@ -295,4 +295,26 @@ div[data-role="content"] a:hover
 .menuBox >img
 {
 	margin-bottom: 5px;
+}
+
+#confirmBox > div
+{
+	width: 45%;
+	min-width: 400px;
+	text-align: center;
+}
+#confirmBox .popUpContent > div
+{
+	font-size: 1.3em;
+}
+#confirmBox .popUpContent > div > span
+{
+	color: #0568c3;
+	font-weight: bold;
+}
+#confirmBox .popUpContent > button
+{
+	display: inline-block;
+	margin-left: 5px;
+	margin-right: 5px;
 }

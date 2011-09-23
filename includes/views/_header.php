@@ -17,13 +17,13 @@
 </head>
 <body>
 
-	<div id="popUpShader">
-		<div class="popUpWindow" id="settings">
+	<div class="popUpShader" id="settings">
+		<div class="popUpWindow">
 			<h3 class="popUpWindowTitleBar">Settings<img src="assets/images/close.png" alt="close" class="xImage" /></h3>
 			<div class="popUpContent">
 				<div class="menuBox" id="logout"><img src="assets/images/logout.png"><div>logout</div></div>
-				<div class="menuBox" id="listUnordered"><img src="assets/images/listUnordered.png"><div>new list</div></div>
-				<div class="menuBox" id="listOrdered"><img src="assets/images/listOrdered.png"><div>new list</div></div>
+				<div class="menuBox" id="listUnordered" title="new list - unordered"><img src="assets/images/listUnordered.png"><div>new list ...</div></div>
+				<div class="menuBox" id="listOrdered" title="new list - ordered"><img src="assets/images/listOrdered.png"><div>new list ...</div></div>
 			</div>
 		</div>
 	</div>

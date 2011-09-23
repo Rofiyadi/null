@@ -42,6 +42,14 @@ render( '_header', array( 'title' => $title ) );
 <?php } ?>
 </div>
 
+	<div class="popUpShader" id="confirmBox">
+		<div class="popUpWindow">
+			<h3 class="popUpWindowTitleBar">Confirm Deletion</h3>
+			<div class="popUpContent"><div>Delete entry? <span></span></div>
+			<button id="cancel">Cancel</button> <button id="delete">Delete</button></div>
+		</div>
+	</div>
+
 <?php } ?>
 
 <?php render('_footer')?>
