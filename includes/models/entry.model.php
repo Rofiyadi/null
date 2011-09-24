@@ -33,7 +33,7 @@ class Entry
 			$link = ( isset($arr['link']) && !empty($arr['link']) ) ? $arr['link'] : '#';
 			$st->execute( array( ':lID' => $arr['lID'], ':title' => $arr['title'], ':link' => $link ) );
 
-			echo '{ "status":"OK", "eID": '. $db->lastInsertId() .', "title": "'. $arr['title'] .'", "link": "'. $link .'"}';die;
+			echo '{ "status":"OK", "eID": '. $db->lastInsertId() .', "title": "'. $arr['title'] .'", "link": "'. $link .'"}';
 		}
 		else
 		{

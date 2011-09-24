@@ -25,6 +25,33 @@ class TodoList
 		return $st->fetchAll(PDO::FETCH_CLASS, "TodoList");
 	}
 
+	public static function insert ($arr = array())
+	{
+		global $db;
+
+		if ( isset($arr['title']) && !empty($arr['title']) )
+		{
+			$st = $db->prepare("INSERT INTO lists (uID, ordered, title) VALUES(:uID, 0, :title)");
+			$st->execute( array( ':uID' => $arr['uID'], ':title' => $arr['title'] ) );
+
+			$newList = new TodoList();
+			$newList->uID = $arr['uID'];
+			$newList->lID = $db->lastInsertId();
+			$newList->parentList = -1;
+			$newList->ordered = 0;
+			$newList->title = $arr['title'];
+			$user = unserialize($_SESSION['user']);
+			$user->lists[] = $newList;
+			$_SESSION['user'] = serialize($user);
+
+			echo '{ "status":"OK", "lID": '. $newList->lID .'}';
+		}
+		else
+		{
+			throw new Exception("Incomplete values!");
+		}
+	}
+
 }
 
 ?>

@@ -93,6 +93,20 @@ $(document).ready(function() {
 		window.location = "?user&action=logout";
 	});
 
+	$("#listUnordered").click(function() {
+		var title = prompt ("Title for the new list", "");
+		if ( title != null && title != "")
+		{
+			$.ajax({
+				url: "./?list=1&action=addUnordered&title=" + title,
+				dataType: "json",
+				success: function( msg ) {
+					if ( msg.status == "OK" ) window.location = "?list=" + msg.lID;
+				}
+			});
+		}
+	});
+
 
 	if ( window['entries'] != undefined )
 	{

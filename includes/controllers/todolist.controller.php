@@ -33,6 +33,11 @@ class TodoListController
 				'entries' => $entries
 			));
 		}
+		else if ( $action == 'addUnordered' )
+		{
+			$_GET['uID'] = $user->uID;
+			TodoList::insert($_GET);
+		}
 		else
 			throw new Exception('Wrong action specified!');
 	}

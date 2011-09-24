@@ -4,7 +4,9 @@ render( '_header', array( 'title' => $title ) );
 ?>
 
 <div id="lists">
-<?php foreach ($user->lists as $list) { ?>
+<?php foreach ($user->lists as $list) {
+	if ( isset($lID) && $lID == $list->lID ) $ordered = $list->ordered;
+?>
 	<a href="./?list=<?php echo $list->lID ?>" <?php echo tabTitleTip($list->title) ?>
 	<?php echo (isset($lID) && $lID == $list->lID ? 'class="current"' : '')?>><?php echo tabTitle($list->title) ?></a>
 <?php } ?>
@@ -17,9 +19,10 @@ render( '_header', array( 'title' => $title ) );
 <div id="entries">
 	<div id="addEntry"><button>Add New Entry</button></div>
 
-<?php foreach ($entries as $entry) { ?>
+<?php foreach ($entries as $entryNumber => $entry) { ?>
 	<div class="entry" id="entry<?php echo $entry->eID ?>">
 <?php
+	if ( $ordered ) echo '<strong>'.($entryNumber + 1) . '.</strong> ';
 	echo '<span class="';
 	if ( $entry->important ) echo 'important ';
 	if ( !$entry->active ) echo 'done ';
